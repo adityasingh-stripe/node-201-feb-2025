@@ -2,4 +2,6 @@ GET http://localhost:8082
 ###
 POST http://localhost:8082/info
 ###
-GET http://localhost:8082/users
+GET http://localhost:8082/currencies
+###
+GET http://localhost:8082/currencies/inr
