@@ -1,0 +1,9 @@
+GET http://localhost:8082
+###
+GET http://localhost:8082/currencies
+###
+GET http://localhost:8082/currencies/usdd
+###
+GET http://localhost:8082/posts/1234/comments/false
+###
+GET http://localhost:8082/currencies?min_value=0.001
