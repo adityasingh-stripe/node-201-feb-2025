@@ -12,7 +12,8 @@
   "type": "commonjs",
   "description": "",
   "dependencies": {
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "joi": "^17.13.3"
   },
   "devDependencies": {
     "nodemon": "^3.1.9"

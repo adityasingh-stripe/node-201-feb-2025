@@ -14,8 +14,8 @@ GET http://localhost:8082/users/0e7fef61-213b-4e20-b6cf-b4d05a7ac79c
 ###
 GET http://localhost:8082/users/search?gender=male&age=49
 ###
-GET http://localhost:8082/users/search?gender=male
+GET http://localhost:8082/users/search?gender=50
 ###
-GET http://localhost:8082/users/search?age=49
+GET http://localhost:8082/users/search?age=MALE
 ###
 GET http://localhost:8082/users/search
