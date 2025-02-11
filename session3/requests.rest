@@ -9,6 +9,7 @@ GET http://localhost:8082/posts/1234/comments/false
 GET http://localhost:8082/currencies?min_value=0.001
 ###
 GET http://localhost:8082/users
+Authorization: LetMeIn
 ###
 GET http://localhost:8082/users/0e7fef61-213b-4e20-b6cf-b4d05a7ac79c
 ###

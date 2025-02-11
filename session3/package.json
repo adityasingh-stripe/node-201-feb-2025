@@ -16,6 +16,7 @@
     "joi": "^17.13.3"
   },
   "devDependencies": {
+    "dotenv": "^16.4.7",
     "nodemon": "^3.1.9"
   }
 }

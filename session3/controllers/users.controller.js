@@ -1,8 +1,9 @@
 const { data } = require("../users.json");
-const { validGenders } = require("../config.js");
 const userSearchSchema = require("../validations/userSearch.validation.js");
 
 const getUsers = (req, res) => {
+  if (req.headers.authorization !== process.env.PASSWORD)
+    return res.sendStatus(401);
   res.send(data);
 };
 

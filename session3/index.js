@@ -1,4 +1,5 @@
 const express = require("express");
+require("dotenv").config();
 const currencyRouter = require("./routes/currencies.route");
 const userRouter = require("./routes/users.route");
 
