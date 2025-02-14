@@ -23,3 +23,24 @@ GET http://localhost:8082/users/search?age=MALE
 GET http://localhost:8082/users/search
 ###
 POST http://localhost:8082/XYZ
+###
+POST http://localhost:8082/blogs/new
+Content-Type: application/json
+
+{
+    "title": "Manali"
+}
+###
+GET http://localhost:8082/blogs
+###
+GET http://localhost:8082/blogs/67af6b4659c6f0247630788e
+###
+DELETE http://localhost:8082/blogs/67af732ae1195f90b2806499
+###
+PATCH http://localhost:8082/blogs/67af7a53f7750523f07a0367
+Content-Type: application/json
+
+{
+    "content": "Manali is a town in Himachal Pradesh.",
+    "authors": ["Kangana Ranaut"]
+}
