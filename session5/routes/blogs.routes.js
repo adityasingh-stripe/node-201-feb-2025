@@ -6,12 +6,15 @@ const {
   deleteBlogById,
   updateBlogById,
 } = require("../controllers/blogs.controller");
+const findByIdAndAttach = require("../middlewares/findByIdAndAttach");
+const Blog = require("../models/blog.model");
 
 router.get("/", getBlogs);
 router.post("/new", postBlog);
 
 router
-  .route("/:blogId") // clubbing routes together
+  .route("/:id") // clubbing routes together
+  .all(findByIdAndAttach(Blog)) // the middleware runs on all HTTP methods
   .get(getBlogById)
   .delete(deleteBlogById)
   .patch(updateBlogById);

@@ -28,7 +28,7 @@ POST http://localhost:8082/blogs/new
 Content-Type: application/json
 
 {
-    "title": "Manali"
+    "content": "Manali"
 }
 ###
 GET http://localhost:8082/blogs
