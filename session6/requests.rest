@@ -28,11 +28,11 @@ POST http://localhost:8082/blogs/new
 Content-Type: application/json
 
 {
-    "title": "Sydney",
+    "title": "A research blog on Melanin",
     "authors": [
         {
-            "fullName": "Clarke",
-            "email": "clarke@hotmail.com"
+            "fullName": "Darwin",
+            "email": "darwin@cambridge.ac.uk"
         }
     ]
 }
@@ -50,3 +50,11 @@ Content-Type: application/json
     "content": "Manali is a town in Himachal Pradesh.",
     "authors": ["Kangana Ranaut"]
 }
+###
+GET http://localhost:8082/blogs/search?title=&author=
+###
+GET http://localhost:8082/blogs/search?title=mel
+###
+GET http://localhost:8082/blogs/search?author=punter@caus.com
+###
+GET http://localhost:8082/blogs/search

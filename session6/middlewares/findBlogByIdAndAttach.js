@@ -1,9 +1,11 @@
-const findByIdAndAttach = (Model) => async (req, res, next) => {
+const { findById } = require("../services/blogs.service");
+
+const findBlogByIdAndAttach = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const reqResource = await Model.findById(id);
-    if (!reqResource) return res.sendStatus(404);
-    req.resource = reqResource;
+    const reqBlog = await findById(id);
+    if (!reqBlog) return res.sendStatus(404);
+    req.blog = reqBlog;
     next();
   } catch (error) {
     if (error.name === "CastError" && error.kind === "ObjectId")
@@ -15,4 +17,4 @@ const findByIdAndAttach = (Model) => async (req, res, next) => {
   }
 };
 
-module.exports = findByIdAndAttach;
+module.exports = findBlogByIdAndAttach;

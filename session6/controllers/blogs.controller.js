@@ -1,11 +1,10 @@
-const Blog = require("../models/blog.model");
+const BlogService = require("../services/blogs.service");
+const BlogServiceInstance = new BlogService();
 
 const postBlog = async (req, res) => {
   try {
-    // const newBlog = await Blog.create(req.body);
-    // OR
-    const newBlog = new Blog(req.body);
-    await newBlog.save();
+    const newBlog = BlogServiceInstance.create(req.body);
+    await BlogServiceInstance.save(newBlog);
 
     res.status(201).send(newBlog);
   } catch (error) {
@@ -22,19 +21,19 @@ const postBlog = async (req, res) => {
 
 const getBlogs = async (req, res) => {
   try {
-    res.send(await Blog.find());
+    res.send(await BlogServiceInstance.findAll());
   } catch (error) {
     console.log(error);
     res.status(500).send({ message: "Something went wrong, try again!" });
   }
 };
 
-const getBlogById = async (req, res) => res.send(req.resource);
+const getBlogById = async (req, res) => res.send(req.blog);
 
 const deleteBlogById = async (req, res) => {
   const { id } = req.params;
   try {
-    await Blog.findByIdAndDelete(id); // findOneAndDelete({ _id: id })
+    await BlogServiceInstance.findByIdAndDelete(id);
     res.sendStatus(204);
   } catch (error) {
     console.log(error);
@@ -45,12 +44,29 @@ const deleteBlogById = async (req, res) => {
 const updateBlogById = async (req, res) => {
   const { id } = req.params;
   try {
-    // findOneAndUpdate({ _id: id }, req.body) // can also be used
-    const updatedBlog = await Blog.findByIdAndUpdate(id, req.body, {
-      // returnDocument: "after",
-      new: true,
-    });
+    const updatedBlog = await BlogServiceInstance.findByIdAndUpdate(
+      id,
+      req.body,
+      {
+        new: true,
+      }
+    );
     res.send(updatedBlog);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({ message: "Something went wrong, try again!" });
+  }
+};
+
+const searchBlogs = async (req, res) => {
+  const { title, author } = req.query;
+  try {
+    const result = await BlogServiceInstance.search(title, author);
+    if (!result)
+      return res
+        .status(400)
+        .send({ message: "At least one of 'title' or 'author' is required!" });
+    res.send(result);
   } catch (error) {
     console.log(error);
     res.status(500).send({ message: "Something went wrong, try again!" });
@@ -63,4 +79,5 @@ module.exports = {
   getBlogById,
   deleteBlogById,
   updateBlogById,
+  searchBlogs,
 };
