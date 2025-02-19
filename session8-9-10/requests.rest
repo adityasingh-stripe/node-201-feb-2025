@@ -1,0 +1,16 @@
+POST http://localhost:8082/auth/signup
+Content-Type: application/json
+
+{
+    "email": "cr7@pfp.com",
+    "username": "cr7",
+    "password": "Siuuuu@7"
+}
+###
+POST http://localhost:8082/auth/login
+Content-Type: application/json
+
+{
+    "username": "cr7",
+    "password": "Siuuuu@7"
+}
