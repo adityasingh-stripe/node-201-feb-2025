@@ -1,16 +1,30 @@
 POST http://localhost:8082/auth/signup
 Content-Type: application/json
 
+# {
+#     "email": "cr7@pfp.com",
+#     "username": "cr7",
+#     "password": "Siuuuu@7"
+# }
+
 {
-    "email": "cr7@pfp.com",
-    "username": "cr7",
-    "password": "Siuuuu@7"
+    "email": "lm10@cfc.com",
+    "username": "lm10",
+    "password": "Lukita@10"
 }
 ###
 POST http://localhost:8082/auth/login
 Content-Type: application/json
 
+# {
+#     "username": "cr7",
+#     "password": "Siuuuu@7"
+# }
+
 {
-    "username": "cr7",
-    "password": "Siuuuu@7"
+    "username": "lm10",
+    "password": "Lukita@10"
 }
+###
+GET http://localhost:8082/user/cr7
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2I5ZmE5NDkzNzFlZWU5NDBkNThmNzciLCJpYXQiOjE3NDAyNDE5MjQsImV4cCI6MTc0MDI0MTk4NH0.bSKB2gnD1xy2HWmc3_YndXrwg1oRHLK_vDzi9ZJz0bE

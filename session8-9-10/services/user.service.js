@@ -25,6 +25,8 @@ class UserService {
       throw error;
     }
   };
+
+  findById = (userId) => Users.findById(userId);
 }
 
 module.exports = UserService;
